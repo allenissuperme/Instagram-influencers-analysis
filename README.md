@@ -108,3 +108,42 @@ WHERE Location IN ('California', 'Oregon', 'Washington', 'Nevada')
   AND Followers BETWEEN 10000 AND 100000
 ORDER BY Engagement_Ratio DESC;
 ```
+
+# Step 5: Cost-Effectiveness Analysis (CPM & CPE)
+
+If pricing data is available, we calculate the following metrics:
+
+### Cost per Thousand Impressions (CPM):
+\[
+\text{CPM} = \left(\frac{\text{Cost}}{\text{Followers}}\right) \times 1000
+\]
+
+### Cost per Engagement (CPE):
+\[
+\text{CPE} = \frac{\text{Cost}}{\text{Avg Likes} + \text{Avg Comments}}
+\]
+
+```sql
+SELECT *, 
+       (Cost / Followers) * 1000 AS CPM, 
+       (Cost / (Avg_Likes + Avg_Comments)) AS CPE
+FROM influencers
+WHERE Location IN ('California', 'Oregon', 'Washington', 'Nevada')
+  AND Followers BETWEEN 10000 AND 100000
+ORDER BY CPE ASC;
+```
+# Step 6: Comparing Influencer Performance
+
+After generating two tables—one sorted by Engagement-to-Follower Ratio and the other by Engagement Rate—we perform key comparisons:
+
+- **Overlapping Influencers:**  
+  Identify influencers appearing in both lists. These influencers are highly engaged and authentic, making them top choices.
+
+- **Followers vs. Engagement Rate:**  
+  - Some influencers may have a high engagement rate but a low engagement-to-follower ratio, indicating a large following with a relatively passive audience.
+  - Others may have a high engagement-to-follower ratio but a lower engagement rate, meaning they have a smaller yet more dedicated audience.
+
+- **Content Authenticity vs. Viral Potential:**  
+  - A high engagement-to-follower ratio suggests a more authentic audience.
+  - A high engagement rate indicates a greater chance of virality, even if the engagement-to-follower ratio is lower.
+
