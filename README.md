@@ -6,9 +6,9 @@ As a marketing analyst at a toy box subscription company, you are starting an in
 
 ## Step 1: Collecting Influencer Data
 
-First, collect the data from **FeedSpot**, which is a paid service provider that provides statistics for influencers across platforms in a CSV file.
+My way: First, collect the data from **FeedSpot**, which is a paid service provider that provides statistics for influencers across platforms in a CSV file.
 
-### Scraping Instagram Influencers with Python
+### Another way: Scraping Instagram Influencers with Python (need to consider Meta's policy for scraping)
 
 We can build a Python script to scrape Instagram influencers.
 
